@@ -1,34 +1,25 @@
 import streamlit as st
-import pandas as pd
 import app.model as model
-import io
 
 st.title('Ease Query')
 
-table = st.file_uploader('Upload Table', type=['csv', 'xlsx', 'xls', 'xlsm', 'xlsb', 'odf', 'ods', 'odt'])
+table = model.upload_table()
 
-if table is not None:
-    if model.file_type(table):
-        # Converte o arquivo para um DataFrame
-        df = model.file_to_csv(table)
-        
-        # Exibe o editor de dados para edição
-        new_table = model.table_editor(df)
+def main():
+    if table is not None:
+        if model.file_type(table):
+            # Read the file, transform in csv and trasnform in a DataFrame
+            df = model.file_to_csv(table)
+            
+            df = model.add_new_column(df)
 
-        # Converte o DataFrame editado de volta para CSV
-        csv_data = new_table.to_csv(index=False)
+            new_table = model.table_editor(df)
 
-        # Converte os dados CSV para bytes
-        csv_bytes = io.BytesIO(csv_data.encode())
+            encoded_table = model.csv_encode(new_table)
 
-        # Solicita o nome do arquivo
-        table_name = model.new_file_specs()
+            table_name = model.new_file_specs()
 
-        # Adiciona o botão para download
-        st.download_button(
-            label="Download Table to csv",
-            data=csv_bytes,
-            file_name=f"{table_name}.csv",  # Usa o nome da tabela fornecido pelo usuário
-            mime="text/csv",
-            icon=":material/download:"
-        )
+            model.download_to_csv(encoded_table,table_name)
+
+if __name__ == '__main__':
+    main()
