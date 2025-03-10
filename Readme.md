@@ -9,11 +9,6 @@
 - ✏️ **Edição Facilitada**: Ferramentas para modificar os dados diretamente na interface.
 - ⚡ **Interatividade**: Visualização fluida e responsiva utilizando **DataTables**.
 
-## 🛠️ Tecnologias Utilizadas
-
-- **Back-end**: Python, Flask, PostgreSQL, Pandas
-- **Front-end**: DataTables (jQuery)
-
 ## 🚀 Como Contribuir
 
 Se você tem sugestões ou gostaria de contribuir para o projeto, fique à vontade para abrir uma **issue** ou enviar um **pull request**! Qualquer feedback é bem-vindo. 😊
