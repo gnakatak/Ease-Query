@@ -9,11 +9,6 @@
 - ✏️ **Simplified Editing**: Tools to modify data directly in the interface.
 - ⚡ **Interactivity**: Fluid and responsive visualization using **DataTables**.
 
-## 🛠️ Technologies Used
-
-- **Back-end**: Python, Flask, PostgreSQL, Pandas
-- **Front-end**: DataTables (jQuery)
-
 ## 🚀 How to Contribute
 
 If you have suggestions or would like to contribute to the project, feel free to open an **issue** or submit a **pull request**! Any feedback is welcome. 😊
