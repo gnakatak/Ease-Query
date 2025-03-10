@@ -1,28 +1,27 @@
 # Ease-Query
 
-**Ease-Query** é uma ferramenta para visualização e organização de tabelas, projetada para facilitar a interação com grandes conjuntos de dados. Com recursos dinâmicos de filtragem e organização, os usuários podem dividir tabelas em seções e visualizar apenas os dados relevantes no momento.
+**Ease-Query** is a tool for visualizing and organizing tables, designed to facilitate interaction with large datasets. With dynamic filtering and organizing features, users can split tables into smaller sections and view only the relevant data at the moment.
 
-## 📌 Funcionalidades
+## 📌 Features
 
-- 🔍 **Filtros Dinâmicos**: Aplicação de múltiplos filtros para segmentar os dados de maneira flexível.
-- 📊 **Divisão de Tabelas**: Separação de grandes tabelas em seções menores para melhor análise.
-- ✏️ **Edição Facilitada**: Ferramentas para modificar os dados diretamente na interface.
-- ⚡ **Interatividade**: Visualização fluida e responsiva utilizando **DataTables**.
+- 🔍 **Dynamic Filters**: Apply multiple filters to segment data flexibly.
+- 📊 **Table Segmentation**: Split large tables into smaller sections for better analysis.
+- ✏️ **Simplified Editing**: Tools to modify data directly in the interface.
+- ⚡ **Interactivity**: Fluid and responsive visualization using **DataTables**.
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Technologies Used
 
 - **Back-end**: Python, Flask, PostgreSQL, Pandas
 - **Front-end**: DataTables (jQuery)
 
-## 🚀 Como Contribuir
+## 🚀 How to Contribute
 
-Se você tem sugestões ou gostaria de contribuir para o projeto, fique à vontade para abrir uma **issue** ou enviar um **pull request**! Qualquer feedback é bem-vindo. 😊
+If you have suggestions or would like to contribute to the project, feel free to open an **issue** or submit a **pull request**! Any feedback is welcome. 😊
 
-## 📬 Contato
+## 📬 Contact
 
-Caso tenha alguma dúvida ou sugestão, entre em contato!
+If you have any questions or suggestions, feel free to reach out!
 
 ---
 
-**Ease-Query** - Facilitando a visualização e organização de dados! 📊✨
-
+**Ease-Query** - Making data visualization and organization easier! 📊✨
