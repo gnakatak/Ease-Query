@@ -2,21 +2,28 @@ import pandas as pd
 import streamlit as st
 import io
 import app.new_column_values as ncv
+import typing as t
+from datetime import datetime
 
+# Upload the file
 def upload_table() -> st.runtime.uploaded_file_manager.UploadedFile | None:
     return st.file_uploader('Upload Table', type=['csv', 'xlsx', 'xls', 'xlsm', 'xlsb', 'odf', 'ods', 'odt'])
 
-def csv_encode(df) -> io.BytesIO:
-    csv_data = df.to_csv(index=False)
-    return io.BytesIO(csv_data.encode())
-    
+# Transform DataFrame in a byte-like object to allow downloading the file 
+def csv_encode(df) -> io.BytesIO: 
+    towrite = io.BytesIO()
+    df.to_excel(towrite)  
+    towrite.seek(0) 
+    return towrite
 
+# Check if the file is a valid type
 def file_type(file) -> bool:
     file.name.split('.')[-1]
     if file.name.split('.')[-1] in ['csv', 'xlsx', 'xls', 'xlsm', 'xlsb', 'odf', 'ods', 'odt']:
         return True
     return False
 
+# Reads the file and transform it in a DataFrame
 def file_to_csv(file) -> pd.DataFrame:
     if file.name.split('.')[-1] in ['csv']:
         return pd.read_csv(file)
@@ -25,7 +32,7 @@ def file_to_csv(file) -> pd.DataFrame:
     return None
 
 def new_file_specs() -> str:
-    table_name = st.text_input('Table Name')
+    table_name : str = st.text_input('Table Name')
     return table_name
 
 def download_to_csv(file,table_name) -> None:
@@ -41,8 +48,13 @@ def table_editor(df) -> pd.DataFrame:
     return st.data_editor(df, width=800, height=400, num_rows="dynamic")
 
 def add_new_column(df):
-    column_name = st.text_input('Column Name')
-    default_value = st.selectbox(
+    """
+    column_namme -> receives a string wtih the name of the new column
+    default_value -> receives a value to be the default value of the new column
+                     it can be a string, integer, float, boolean, date or time   
+    """
+    column_name : str = st.text_input('Column Name')
+    default_value : t.Union[int, float, str, bool, datetime.today, datetime.now] = st.selectbox(
         'Default Value', 
         list(ncv.new_column_value['new_column_value'][0].keys()), 
         placeholder="Select the value type of the new column"
@@ -55,5 +67,4 @@ def add_new_column(df):
             st.success(f"Column '{column_name}' added successfully!")
         else:
             st.error("Please provide a column name.")
-
     return df
