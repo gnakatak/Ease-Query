@@ -31,6 +31,7 @@ def file_to_csv(file) -> pd.DataFrame:
         return pd.read_excel(file)
     return None
 
+# Get the new table name
 def new_file_specs() -> str:
     table_name : str = st.text_input('Table Name')
     return table_name
